@@ -20,6 +20,10 @@ main {
           justify-content: center;
   font-family: "Manrope", sans-serif;
   padding: 1rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 img {
@@ -230,6 +234,16 @@ article .box-item:nth-of-type(2) .box-img {
 
 .pop-2 {
   display: none;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.attribution a {
+  color: #3e52a3;
 }
 
 @media screen and (max-width: 885px) {

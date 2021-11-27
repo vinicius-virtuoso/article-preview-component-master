@@ -21,6 +21,7 @@ main {
   justify-content: center;
   font-family: $Font-Family;
   padding: 1rem;
+  flex-direction: column;
 }
 
 img {
@@ -181,8 +182,16 @@ article {
 .pop-2 {
   display: none;
 }
-
 // btn popup
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
 
 @media screen and (max-width: 885px) {
   main {
