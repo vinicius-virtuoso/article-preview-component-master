@@ -63,6 +63,7 @@ article .box-item:nth-of-type(2) {
 article .box-item:nth-of-type(2) h2 {
   font-weight: 700;
   font-size: 1.375rem;
+  color: #48556a;
 }
 
 article .box-item:nth-of-type(2) p {
@@ -115,6 +116,7 @@ article .box-item:nth-of-type(2) .box-img {
           flex-direction: column;
   font-weight: 700;
   font-size: 13px;
+  color: #48556a;
 }
 
 .b-img .box-span span:last-child {
