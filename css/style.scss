@@ -20,7 +20,7 @@ main {
   align-items: center;
   justify-content: center;
   font-family: $Font-Family;
-  padding: 1rem 2rem;
+  padding: 1rem;
 }
 
 img {
@@ -70,25 +70,6 @@ article {
       justify-content: space-between;
       position: relative;
       margin-top: 1.5rem;
-
-      .box-share {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        cursor: pointer;
-        transition: all 0.4s ease;
-        z-index: 999;
-
-        &:hover,
-        &.active {
-          // background: $Very-Dark-Grayish-Blue;
-
-          svg * {
-            fill: #fff;
-          }
-        }
-      }
     }
   }
 }
@@ -112,80 +93,100 @@ article {
     }
   }
 }
-.popup {
-  position: absolute;
+
+// btn popup
+.btn-pop {
+  width: 38px;
+  height: 38px;
+  background: $Light-Grayish-Blue;
+  border-radius: 50%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  min-width: 240px;
-  background: $Very-Dark-Grayish-Blue;
-  top: -75px;
-  padding: 1rem 1.5rem;
-  border-radius: 10px;
-  font-weight: 500;
-  color: $Grayish-Blue;
-  box-shadow: 0 0 5px 1px $Very-Dark-Grayish-Blue;
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.4s ease;
-  letter-spacing: 5px;
-  font-size: $Font-size;
-  cursor: initial;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+  transition: 0.3s ease-in-out;
 
-  &::before {
-    content: "";
-    display: block;
-    width: 25px;
-    height: 20px;
-    background: $Very-Dark-Grayish-Blue;
-    position: absolute;
-    left: 50%;
-    top: 50px;
-    transform: translateX(-50%);
-    box-shadow: 0 0 5px 1px $Very-Dark-Grayish-Blue;
-    clip-path: polygon(100% 0%, 0% 0%, 50% 100%);
+  svg * {
+    fill: $Very-Dark-Grayish-Blue;
   }
 
-  .links {
-    display: flex;
-    a:not(.last) {
-      margin-right: 1rem;
+  &.active {
+    background: $Very-Dark-Grayish-Blue;
+    svg * {
+      fill: #fff;
     }
   }
 }
-.box-share.active .popup {
-  pointer-events: initial;
-  opacity: 1;
-}
-
-.popup-desk {
-  display: none;
-  background: $Very-Dark-Grayish-Blue;
+.pop {
   width: 100%;
-
+  max-width: 240px;
+  background: $Very-Dark-Grayish-Blue;
+  height: 50px;
   position: absolute;
-  left: 0;
-  align-items: center;
-  height: 100%;
-  padding: 0 2rem;
-  z-index: -1;
-  font-weight: 500;
-  color: $Grayish-Blue;
-  .links {
+  right: 0%;
+  top: 0%;
+  transform: translate(43%, -140%) scale(0.5);
+  border-radius: 10px;
+  box-shadow: 0 0 50px -0px $Grayish-Blue;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease-in-out;
+
+  &.active {
+    opacity: 1;
+    pointer-events: fill;
+    transform: translate(43%, -140%) scale(1);
+  }
+
+  &::after {
+    content: "";
     display: flex;
-    a {
-      margin: 0.5rem;
-      &:first-child {
-        margin-left: 1rem;
+    width: 25px;
+    height: 20px;
+    background: $Very-Dark-Grayish-Blue;
+    position: relative;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 0%;
+    clip-path: polygon(0% 0%, 50% 80%, 100% 0%);
+    box-shadow: 0 0 50px -30px $Grayish-Blue;
+  }
+
+  .box-spans {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 1rem 2rem;
+    justify-content: space-between;
+    color: $Grayish-Blue;
+    letter-spacing: 0.2rem;
+    font-weight: 500;
+    font-size: $Font-size;
+
+    span {
+      opacity: 0.8;
+    }
+
+    .span-link {
+      display: flex;
+
+      a + a {
+        margin-left: 0.7rem;
       }
     }
   }
 }
+.pop-2 {
+  display: none;
+}
+
+// btn popup
 
 @media screen and (max-width: 885px) {
   main {
     width: 100%;
-    height: 100%;
   }
   article {
     grid-template-columns: 1fr;
@@ -215,9 +216,6 @@ article {
         color: $Desaturated-Dark-Blue;
         padding: 0 2rem;
       }
-      .popup {
-        display: none;
-      }
       .box-img {
         padding: 1rem 1rem 1rem 2rem;
       }
@@ -228,63 +226,76 @@ article {
         justify-content: space-between;
         position: relative;
         margin-top: 1.5rem;
-
-        .box-share {
-          width: 38px;
-          height: 38px;
-          background: $Light-Grayish-Blue;
-
-          &:hover,
-          &.active {
-            background: $Very-Dark-Grayish-Blue;
-
-            svg * {
-              fill: #fff;
-            }
-          }
-        }
       }
-      .box-share {
+    }
+  }
+  .pop {
+    display: none;
+  }
+  .btn-pop {
+    background: $Light-Grayish-Blue;
+    &.active {
+      background: $Desaturated-Dark-Blue;
+    }
+  }
+  .pop {
+    background: $Very-Dark-Grayish-Blue;
+    width: 0%;
+    max-width: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(0%, 0%) scale(1);
+    padding: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+    opacity: 0;
+
+    &.active {
+      width: 100%;
+      padding: 0 2rem;
+      opacity: 1;
+      transform: translate(0%, 0%) scale(1);
+      padding: 0;
+      border-radius: 0;
+    }
+
+    &::after {
+      display: none;
+    }
+    .box-spans {
+      width: 70%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      color: $Grayish-Blue;
+      letter-spacing: 0.2rem;
+      font-weight: 500;
+      font-size: initial;
+      padding: 1rem 0rem 1rem 2.5rem;
+
+      span {
+        opacity: 0.8;
         margin-right: 1rem;
-        &:hover,
-        &.active {
-          // background: $Desaturated-Dark-Blue;
+      }
 
-          svg * {
-            fill: #fff;
-          }
-        }
-        .btn-share {
-          z-index: 999;
-          background: #000;
-          width: 38px;
-          height: 38px;
-          // background: $Light-Grayish-Blue;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border-radius: 50%;
-        }
-        .popup-desk {
-          display: flex;
-          width: 0;
-          pointer-events: none;
-          opacity: 0;
-          overflow: hidden;
-          transition: 0.4s ease;
+      .span-link {
+        display: flex;
+        justify-self: center;
+        align-items: center;
 
-          &.active {
+        a {
+          width: 25px;
+          img {
             width: 100%;
-            opacity: 1;
-            pointer-events: fill;
-            transition: 0.4s ease;
+            max-width: 100%;
           }
-        }
-        &.active .popup-desk {
-          width: 100%;
-          opacity: 1;
-          pointer-events: fill;
-          transition: 0.4s ease;
+          & + a {
+            margin-left: 0.7rem;
+          }
         }
       }
     }
